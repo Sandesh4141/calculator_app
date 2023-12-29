@@ -1,0 +1,177 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: rgb(73, 97, 118);
+        font-family: 'Share Tech Mono', monospace;
+    }
+
+    .app_container {
+        color: white;
+        width: 50%;
+        height: auto;
+        margin: 5rem auto;
+        background-color: rgb(29, 5, 68);
+        border: none;
+        border-radius: 5px;
+        font-size: 2rem;
+        /* padding: 1rem 0; */
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .app_container header {
+        /* background-color: rgb(97, 92, 92); */
+        width: 90%;
+        /* height: 3rem; */
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .app_container header>div {
+        margin: 0 0.1rem;
+        text-align: center;
+    }
+
+    .app_container header .display {
+
+        background-color: rgb(206, 186, 186);
+        border-radius: 5px;
+        width: 90%;
+        /* padding: 0.4rem; */
+        cursor: text;
+        outline: none;
+        padding: 0.4rem;
+        font-size: 2rem;
+        font-family: 'Share Tech Mono', monospace;
+
+    }
+
+    .clear_btn {
+        background-color: #fb0066;
+        border-radius: 5px;
+        width: 10%;
+        padding: 0.4rem;
+        outline: none;
+        font-size: 2rem;
+
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+
+        color: white;
+
+    }
+
+    .grid_wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.7rem;
+        width: 85%;
+        margin: 0 auto;
+        border-radius: 5px;
+
+    }
+
+    .grid_items {
+        background-color: #64278f;
+        border: 1px solid #64278f;
+        border-radius: 5px;
+        text-align: center;
+
+        outline: none;
+        padding: 0.6rem;
+        font-size: 1.6rem;
+        color: white;
+        cursor: hand;
+    }
+
+    .grid_items:hover {
+        outline: invert;
+    }
+
+    .clr_pink {
+        background-color: #fb0066;
+    }
+
+    p {
+        text-align: center;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="app_container">
+        <header>
+            <input id="displayScreen" type="text" class="display" placeholder="000">
+            <button class="clear_btn">C</button>
+        </header>
+        <main class="grid_wrapper">
+            <button class="grid_items" value="1">1</button>
+            <button class="grid_items" value="2">2</button>
+            <button class="grid_items" value="3">3</button>
+            <button class="grid_items" value="/">/</button>
+            <button class="grid_items" value="4">4</button>
+            <button class="grid_items" value="5">5</button>
+            <button class="grid_items" value="6">6</button>
+            <button class="grid_items" value="-">-</button>
+            <button class="grid_items" value="7">7</button>
+            <button class="grid_items" value="8">8</button>
+            <button class="grid_items" value="9">9</button>
+            <button class="grid_items" value="+">+</button>
+            <button class="grid_items" value=".">.</button>
+            <button class="grid_items" value="0">0</button>
+            <button class="grid_items clr_pink" value="=">=</button>
+            <button class="grid_items">*</button>
+        </main>
+    </div>
+
+    <p>Coded By Sandesh</p>
+</body>
+<script>
+    const screen = document.getElementById("displayScreen");
+    let buttons = document.querySelectorAll("button");
+    // console.log(buttons);
+    let screenValue = "";
+    for (const button of buttons) {
+        button.addEventListener('click', (e) => {
+            buttonText = e.target.innerText;
+            console.log("Button text is ", buttonText);
+            if (buttonText == "*") {
+                screenValue += buttonText;
+                screen.value = screenVaule;
+            }
+            else if (buttonText == 'C') {
+                screenValue = "";
+                screen.value = screenValue;
+            }
+            else if (buttonText == '=') {
+                screen.value = eval(screenValue);
+            }
+            else {
+                screenValue += buttonText;
+                screen.value = screenValue;
+            }
+        })
+    }
+</script>
+
+</html>
